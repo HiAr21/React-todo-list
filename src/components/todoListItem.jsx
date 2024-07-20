@@ -5,14 +5,17 @@ function ToDoItem(props) {
   function cutIt() {
     setCut(!isCut);
   }
-  function generateKey(e) {
-    return `${e}_${new Date().getTime()}`;
-  }
+//   function generateKey(e) {
+//     return `${e}_${new Date().getTime()}`;
+//   }
   return (
     <li
-      onClick={cutIt}
-      key={generateKey(props.event)}
+    //   onClick={cutIt}
       style={{ textDecoration: isCut == true ? "line-through" : "none" }}
+      onClick={()=>{
+        props.onChecked(props.id);
+      }}
+
     >
       {props.event}
     </li>
